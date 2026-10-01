@@ -2,57 +2,144 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tree Labs , Inside</title>
+<title>Tree Labs, Inside</title>
 <style>
 :root{color-scheme:light dark;--bg:#f7f6f2;--ink:#172018;--muted:#687067;--line:#d9ddd5;--accent:#2f5b3b;--panel:#eeece6}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:86px}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:inherit}.container{width:min(1120px,calc(100% - 48px));margin:auto}
-.site-header{position:sticky;top:0;z-index:20;height:76px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(16px)}.header-inner{height:100%;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:9px;font-size:21px;font-weight:650;letter-spacing:-.04em;text-decoration:none}.brand-mark{width:25px;height:32px;object-fit:contain}.brand span{font-weight:650}.brand em{font-style:normal;font-weight:400;color:var(--muted)}.nav a{color:var(--muted);text-decoration:none;font-size:14px;margin-left:28px}.nav a:hover,.nav a.active{color:var(--ink)}
-main{padding-bottom:0}.hero{min-height:650px;display:flex;align-items:center;padding:76px 0 92px}.hero-copy{max-width:650px}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin-bottom:22px}.hero h1{font-size:clamp(40px,4.7vw,58px);line-height:1.05;letter-spacing:-.052em;font-weight:500;margin:0 0 25px;max-width:650px}.hero p{font-size:19px;line-height:1.58;color:var(--muted);max-width:590px;margin:0}.prompt{margin-top:30px;display:inline-flex;align-items:center;gap:10px;padding:13px 19px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--ink);font:inherit;cursor:pointer}.prompt:hover{border-color:var(--accent)}
-section{padding:110px 0}.sectiongrid{display:grid;grid-template-columns:.7fr 1.3fr;gap:70px}.index{font-size:12px;color:var(--accent);letter-spacing:.15em}.sectiongrid h2{font-size:42px;line-height:1.04;letter-spacing:-.045em;font-weight:500;margin:0}.content{max-width:720px}.content p{font-size:19px;line-height:1.7;color:var(--muted);margin:0 0 24px}.reveal{border:1px solid var(--line);margin-top:34px}.reveal button{width:100%;padding:23px 25px;text-align:left;background:var(--panel);border:0;color:var(--ink);font:inherit;font-size:17px;cursor:pointer}.reveal .body{display:none;padding:0 25px 25px;color:var(--muted);line-height:1.65}.reveal.open .body{display:block}.choices{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);margin-top:35px}.choice{background:var(--bg);padding:28px;cursor:pointer;border:0;color:var(--ink);text-align:left;font:inherit}.choice:hover,.choice.selected{background:var(--panel)}.choice small{display:block;color:var(--accent);font-size:11px;letter-spacing:.12em;margin-bottom:12px}.choice strong{font-size:18px;font-weight:500}.choice span{display:block;color:var(--muted);font-size:14px;line-height:1.5;margin-top:9px}.response{display:none;margin-top:25px;padding:26px;background:var(--panel);border:1px solid var(--line);line-height:1.65;color:var(--muted)}.response.show{display:block}.path{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);margin-top:42px}.step{background:var(--bg);padding:26px 22px;min-height:145px}.step b{font-size:12px;color:var(--accent);letter-spacing:.12em}.step h3{font-size:18px;font-weight:500;margin:25px 0 8px}.step p{font-size:14px;line-height:1.5;color:var(--muted);margin:0}.final{background:var(--panel);padding:60px;border:1px solid var(--line);margin-top:55px}.final h2{font-size:40px;letter-spacing:-.045em;font-weight:500;margin:0 0 15px}.final p{max-width:700px;color:var(--muted);line-height:1.65;font-size:18px}.button{display:inline-block;margin-top:18px;padding:14px 20px;border:1px solid var(--line);border-radius:999px;text-decoration:none;font-size:14px}.button:hover{border-color:var(--accent)}footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:12px}
-@media(max-width:800px){.container{width:min(100% - 32px,680px)}.site-header{height:68px}.hero{padding:65px 0 80px;min-height:0}.sectiongrid{grid-template-columns:1fr;gap:28px}.choices,.path{grid-template-columns:1fr}.final{padding:38px}.hero h1{font-size:clamp(37px,10vw,52px);max-width:620px}}
-.nav a:hover,.nav a.active{color:var(--ink)}
-@media (prefers-color-scheme: dark){
-:root{color-scheme:dark;--bg:#111511;--ink:#edf1eb;--muted:#a6afa5;--line:#30372f;--accent:#78a982;--panel:#1a201b}
-}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:inherit}.container{width:min(1120px,calc(100% - 48px));margin:auto}
+.site-header{position:sticky;top:0;z-index:30;height:76px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(16px)}.header-inner{height:100%;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:9px;font-size:21px;font-weight:650;letter-spacing:-.04em;text-decoration:none}.brand-mark{width:25px;height:32px;object-fit:contain}.brand em{font-style:normal;font-weight:400;color:var(--muted)}.nav a{color:var(--muted);text-decoration:none;font-size:14px;margin-left:28px}.nav a:hover,.nav a.active{color:var(--ink)}
+.lab-progress{position:fixed;right:28px;top:50%;transform:translateY(-50%);z-index:10;display:flex;flex-direction:column;gap:9px}.lab-progress a{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--muted);font-size:10px;letter-spacing:.08em;opacity:.62;transition:.2s}.lab-progress a:before{content:"";display:block;width:7px;height:7px;border:1px solid currentColor;border-radius:50%;background:var(--bg)}.lab-progress a.active{color:var(--accent);opacity:1}.lab-progress a.active:before{background:var(--accent);border-color:var(--accent)}
+main{padding-bottom:80px}.hero{min-height:calc(100vh - 76px);display:flex;align-items:center;padding:80px 0 110px}.hero-copy{max-width:760px}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin-bottom:22px}.hero h1{font-size:clamp(46px,6.2vw,76px);line-height:1;letter-spacing:-.06em;font-weight:500;margin:0 0 26px;max-width:800px}.hero p{font-size:19px;line-height:1.6;color:var(--muted);max-width:620px;margin:0}.prompt,.continue,.button{display:inline-flex;align-items:center;gap:10px;margin-top:30px;padding:13px 19px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--ink);font:inherit;text-decoration:none;cursor:pointer}.prompt:hover,.continue:hover,.button:hover{border-color:var(--accent)}
+.section{min-height:100vh;display:flex;align-items:center;padding:100px 0;scroll-margin-top:76px}.sectiongrid{display:grid;grid-template-columns:.62fr 1.38fr;gap:70px;width:100%}.index{font-size:11px;color:var(--accent);letter-spacing:.16em}.content{max-width:760px}.content h2{font-size:clamp(38px,4.4vw,58px);line-height:1.03;letter-spacing:-.052em;font-weight:500;margin:0 0 24px}.content>p{font-size:19px;line-height:1.68;color:var(--muted);margin:0 0 20px}.continue{margin-top:28px}
+.observation-list{display:grid;gap:1px;background:var(--line);margin:38px 0 0}.observation-item{background:var(--bg);padding:25px 26px;display:grid;grid-template-columns:40px 1fr;gap:18px;align-items:start}.observation-item b{font-size:11px;color:var(--accent);letter-spacing:.12em}.observation-item strong{font-size:19px;font-weight:500}.observation-item span{display:block;color:var(--muted);font-size:15px;line-height:1.55;margin-top:6px}
+.layers{margin-top:38px;border:1px solid var(--line)}.layer{padding:25px 28px;border-bottom:1px solid var(--line);background:var(--bg);transition:.25s;cursor:pointer}.layer:last-child{border-bottom:0}.layer:hover,.layer.open{background:var(--panel)}.layer-head{display:flex;justify-content:space-between;gap:20px;align-items:center}.layer-head strong{font-size:18px;font-weight:500}.layer-head span{font-size:18px;color:var(--accent)}.layer p{display:none;color:var(--muted);line-height:1.6;margin:12px 0 0;font-size:15px}.layer.open p{display:block}
+.loop{margin-top:42px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line)}.loop-step{position:relative;background:var(--bg);padding:30px 22px;min-height:180px;cursor:pointer}.loop-step:hover,.loop-step.active{background:var(--panel)}.loop-step b{font-size:11px;color:var(--accent);letter-spacing:.12em}.loop-step h3{font-size:21px;font-weight:500;margin:30px 0 8px}.loop-step p{font-size:14px;line-height:1.55;color:var(--muted);margin:0}.loop-note{margin-top:18px;padding:20px 22px;border-left:2px solid var(--accent);color:var(--muted);line-height:1.6;min-height:58px}
+.choices{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);margin-top:38px}.choice{background:var(--bg);padding:28px;text-align:left;border:0;color:var(--ink);font:inherit;cursor:pointer;min-height:170px}.choice:hover,.choice.selected{background:var(--panel)}.choice small{display:block;color:var(--accent);font-size:11px;letter-spacing:.12em;margin-bottom:16px}.choice strong{font-size:19px;font-weight:500}.choice span{display:block;color:var(--muted);font-size:14px;line-height:1.5;margin-top:9px}.response{display:none;margin-top:1px;padding:28px;background:var(--panel);border:1px solid var(--line);line-height:1.65;color:var(--muted)}.response.show{display:block}.response-label{display:block;color:var(--accent);font-size:10px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px}
+.path{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);margin-top:38px}.path-step{background:var(--bg);padding:26px 22px;min-height:155px;cursor:pointer}.path-step:hover,.path-step.active{background:var(--panel)}.path-step b{font-size:11px;color:var(--accent);letter-spacing:.12em}.path-step h3{font-size:18px;font-weight:500;margin:25px 0 8px}.path-step p{font-size:14px;line-height:1.5;color:var(--muted);margin:0}
+.final{min-height:70vh;display:flex;align-items:center}.final-card{background:var(--panel);padding:60px;border:1px solid var(--line);width:100%}.final-card h2{font-size:clamp(40px,5vw,62px);letter-spacing:-.055em;line-height:1.02;font-weight:500;margin:0 0 18px;max-width:760px}.final-card p{max-width:690px;color:var(--muted);line-height:1.65;font-size:18px}.invites{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}.invite{padding:12px 17px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--ink);font:inherit;cursor:pointer}.invite:hover,.invite.active{border-color:var(--accent);background:var(--bg)}.invite-response{margin-top:22px;color:var(--muted);line-height:1.6;max-width:700px;min-height:26px}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:12px}
+@media(max-width:1050px){.lab-progress{display:none}}@media(max-width:800px){.container{width:min(100% - 32px,680px)}.site-header{height:68px}.nav a{margin-left:15px;font-size:13px}.hero{min-height:0;padding:90px 0 100px}.section{min-height:0;padding:95px 0}.sectiongrid{grid-template-columns:1fr;gap:25px}.loop,.path,.choices{grid-template-columns:1fr}.final{min-height:0;padding:55px 0}.final-card{padding:38px}.hero h1{font-size:clamp(44px,12vw,62px)}} 
+@media (prefers-color-scheme: dark){:root{color-scheme:dark;--bg:#111511;--ink:#edf1eb;--muted:#a6afa5;--line:#30372f;--accent:#78a982;--panel:#1a201b}}
 </style>
 </head>
 <body>
-<header class="site-header"><div class="container header-inner"><a class="brand" href="index.html"><img class="brand-mark" src="tree-labs-logo.png" alt="Tree Labs"><span>Tree <em>Labs</em></span></a><nav class="nav"><a href="index.html#approach">Approach</a><a href="index.html#explore">Explore</a><a href="index.html#contact">Connect</a><a href="access.html">Lab</a></nav></div></header>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="index.html"><img class="brand-mark" src="tree-labs-logo.png" alt="Tree Labs"><span>Tree <em>Labs</em></span></a><nav class="nav"><a href="index.html#approach">Approach</a><a href="index.html#explore">Explore</a><a href="index.html#contact">Connect</a><a class="active" href="access.html">Lab</a></nav></div></header>
+
+<nav class="lab-progress" aria-label="Lab sections">
+<a href="#observation" data-section="observation">01 Observation</a>
+<a href="#opportunity" data-section="opportunity">02 Opportunity</a>
+<a href="#idea" data-section="idea">03 Idea</a>
+<a href="#experience" data-section="experience">04 Experience</a>
+<a href="#path" data-section="path">05 Path</a>
+<a href="#invitation" data-section="invitation">06 Invitation</a>
+</nav>
+
 <main>
-<div class="container hero"><div class="hero-copy">
+<section class="hero"><div class="container"><div class="hero-copy">
 <div class="eyebrow">Tree Labs / Inside</div>
 <h1>What if technology understood before it acted?</h1>
-<p>This is not a conventional executive summary. It is a way to experience the thinking behind Tree Labs, through the same principles we believe technology should embody: context, participation, usefulness and human judgment.</p>
-<button class="prompt" onclick="document.getElementById('observation').scrollIntoView({behavior:'smooth'})">Begin with the observation ↓</button>
-</div></div>
-<section id="observation"><div class="container sectiongrid"><div><div class="index">01 / THE OBSERVATION</div></div><div class="content"><h2>The world is already connected.</h2><p>People already live and work inside networks of systems, devices, software, information and services. The problem is rarely a lack of technology.</p><p>The opportunity is in what happens between those things: when context is fragmented, systems cannot see the whole picture, and people are left to perform the reasoning themselves.</p><div class="reveal"><button onclick="this.parentElement.classList.toggle('open')">Reveal the question +</button><div class="body">What if the intelligence layer did not replace the systems people already rely on,but understood enough context to help them work together more naturally?</div></div></div></div></section>
-<section><div class="container sectiongrid"><div><div class="index">02 / THE OPPORTUNITY</div></div><div class="content"><h2>Not another system. A layer of intelligence.</h2><p>Tree Labs is exploring a different role for technology: an intelligence and policy layer that can understand context, connect existing capabilities and help determine what should happen next.</p><p>The objective is not to automate everything. It is to make the right things more understandable, more responsive and more useful, while keeping people in the loop where judgment matters.</p></div></div></section>
-<section><div class="container sectiongrid"><div><div class="index">03 / THE IDEA</div></div><div class="content"><h2>Understand. Augment. Keep people in it.</h2><p>The model is intentionally simple at the human level, even when the technology underneath may be sophisticated.</p><div class="path"><div class="step"><b>01</b><h3>Understand</h3><p>Recognize context rather than isolated events.</p></div><div class="step"><b>02</b><h3>Connect</h3><p>Bring relevant systems, information and capabilities together.</p></div><div class="step"><b>03</b><h3>Decide</h3><p>Apply policy and reasoning to determine useful next steps.</p></div><div class="step"><b>04</b><h3>Act</h3><p>Assist or act without removing human agency.</p></div></div></div></div></section>
-<section><div class="container sectiongrid"><div><div class="index">04 / THE EXPERIENCE</div></div><div class="content"><h2>Now put the idea to work.</h2><p>Choose the perspective you care about. The underlying idea stays the same; the experience changes with the context.</p><div class="choices">
-<button class="choice" onclick="choose(this,'business')"><small>01</small><strong>Business</strong><span>What could this mean for operations, customers and existing systems?</span></button>
-<button class="choice" onclick="choose(this,'technology')"><small>02</small><strong>Technology</strong><span>What changes when intelligence sits above the infrastructure?</span></button>
-<button class="choice" onclick="choose(this,'investment')"><small>03</small><strong>Investment</strong><span>Where could a new category emerge from this capability?</span></button>
-<button class="choice" onclick="choose(this,'idea')"><small>04</small><strong>An idea</strong><span>What happens when you bring a problem or possibility into the lab?</span></button>
-</div><div class="response" id="response"></div></div></div></section>
-<section><div class="container sectiongrid"><div><div class="index">05 / THE PATH</div></div><div class="content"><h2>From observation to opportunity.</h2><p>Tree Labs is deliberately open-ended. An observation can become a prototype, a product, a platform or something that deserves to become a company of its own.</p><div class="reveal"><button onclick="this.parentElement.classList.toggle('open')">What we are looking for +</button><div class="body">Thoughtful problems. Unconventional opportunities. Existing systems that could become more capable. Ideas where technology can make life more useful, more human or simply more interesting.</div></div></div></div></section>
-<section><div class="container"><div class="final"><div class="eyebrow">06 / THE INVITATION</div><h2>Bring us something worth exploring.</h2><p>Tree Labs is not built around one predetermined answer. It is built around a way of looking at technology,and the willingness to explore what that way of thinking can create.</p><a class="button" href="index.html#contact">Start a conversation</a></div></div></section>
-</main>
-<footer><div class="container">Tree Labs / Inside · Exploring useful technology.</div></footer>
-<script>
-if(!localStorage.getItem('treeLabsVisitor')){
-  window.location.replace('access.html');
-}
+<p>Explore the thinking behind Tree Labs by moving through the questions, choices and ideas that shape how we look at technology.</p>
+<button class="prompt" onclick="go('observation')">Begin the exploration <span>↓</span></button>
+</div></div></section>
 
+<section class="section" id="observation"><div class="container sectiongrid"><div><div class="index">01 / OBSERVATION</div></div><div class="content">
+<h2>The world is already connected.</h2>
+<p>People already live and work inside networks of systems, devices, software, information and services. The problem is rarely a lack of technology.</p>
+<p>The interesting gap is what happens between those things.</p>
+<div class="observation-list">
+<div class="observation-item"><b>01</b><div><strong>Systems know things.</strong><span>Data, events, states and capabilities already exist across the tools people use.</span></div></div>
+<div class="observation-item"><b>02</b><div><strong>People know things.</strong><span>Intent, judgment, priorities and context often live with the person.</span></div></div>
+<div class="observation-item"><b>03</b><div><strong>Context lives between them.</strong><span>That is where fragmentation creates friction and where a different kind of intelligence can become useful.</span></div></div>
+</div>
+<button class="continue" onclick="go('opportunity')">Continue to the opportunity →</button>
+</div></div></section>
+
+<section class="section" id="opportunity"><div class="container sectiongrid"><div><div class="index">02 / OPPORTUNITY</div></div><div class="content">
+<h2>Not another system. A layer of intelligence.</h2>
+<p>Imagine adding intelligence above the systems people already rely on. Click each layer to see the role it can play.</p>
+<div class="layers">
+<div class="layer" onclick="toggleLayer(this)"><div class="layer-head"><strong>Existing systems</strong><span>+</span></div><p>Home, work, devices, software, services and data. The infrastructure does not need to disappear for something new to happen.</p></div>
+<div class="layer" onclick="toggleLayer(this)"><div class="layer-head"><strong>Intelligence</strong><span>+</span></div><p>Understand context across systems instead of treating every event as an isolated transaction.</p></div>
+<div class="layer" onclick="toggleLayer(this)"><div class="layer-head"><strong>Policy</strong><span>+</span></div><p>Translate intent, constraints and rules into decisions about what should happen next.</p></div>
+<div class="layer" onclick="toggleLayer(this)"><div class="layer-head"><strong>Useful action</strong><span>+</span></div><p>Assist or act in the right moment, while keeping human judgment where it belongs.</p></div>
+</div>
+<button class="continue" onclick="go('idea')">See the idea in motion →</button>
+</div></div></section>
+
+<section class="section" id="idea"><div class="container sectiongrid"><div><div class="index">03 / IDEA</div></div><div class="content">
+<h2>Understand. Augment. Keep people in it.</h2>
+<p>The model is simple at the human level, even when the technology underneath may be sophisticated. Select a step to explore it.</p>
+<div class="loop">
+<div class="loop-step active" onclick="selectLoop(this,'Understand means recognizing context rather than reacting to isolated events.')"><b>01</b><h3>Understand</h3><p>See more of the situation.</p></div>
+<div class="loop-step" onclick="selectLoop(this,'Connect means bringing relevant systems, information and capabilities together when they are useful.')"><b>02</b><h3>Connect</h3><p>Bring the right pieces together.</p></div>
+<div class="loop-step" onclick="selectLoop(this,'Decide means applying policy and reasoning to determine useful next steps without pretending every decision should be automated.')"><b>03</b><h3>Decide</h3><p>Determine what makes sense.</p></div>
+<div class="loop-step" onclick="selectLoop(this,'Act means assisting or acting in a way that preserves human agency instead of removing it.')"><b>04</b><h3>Act</h3><p>Make something useful happen.</p></div>
+</div>
+<div class="loop-note" id="loopNote">Understand means recognizing context rather than reacting to isolated events.</div>
+<button class="continue" onclick="go('experience')">Put the idea to work →</button>
+</div></div></section>
+
+<section class="section" id="experience"><div class="container sectiongrid"><div><div class="index">04 / EXPERIENCE</div></div><div class="content">
+<h2>Now put the idea to work.</h2>
+<p>Choose the perspective you care about. Your choice changes the next part of the story.</p>
+<div class="choices">
+<button class="choice" onclick="choose(this,'business')"><small>01</small><strong>Business</strong><span>Where could better context create measurable value?</span></button>
+<button class="choice" onclick="choose(this,'technology')"><small>02</small><strong>Technology</strong><span>What changes when intelligence sits above infrastructure?</span></button>
+<button class="choice" onclick="choose(this,'investment')"><small>03</small><strong>Investment</strong><span>Could a reusable capability create new applications or markets?</span></button>
+<button class="choice" onclick="choose(this,'idea')"><small>04</small><strong>An idea</strong><span>What would you explore if you brought the problem into the Lab?</span></button>
+</div>
+<div class="response" id="response"><span class="response-label">Your perspective</span><span id="responseText"></span></div>
+<button class="continue" onclick="go('path')">Follow the path →</button>
+</div></div></section>
+
+<section class="section" id="path"><div class="container sectiongrid"><div><div class="index">05 / PATH</div></div><div class="content">
+<h2>From observation to opportunity.</h2>
+<p>Not every observation becomes a company. Some become products. Some become capabilities. Some simply teach us something. The Lab exists to find out which is which.</p>
+<div class="path">
+<div class="path-step active" onclick="selectPath(this)"><b>01</b><h3>Observe</h3><p>Find the friction, possibility or pattern worth noticing.</p></div>
+<div class="path-step" onclick="selectPath(this)"><b>02</b><h3>Explore</h3><p>Question assumptions and test what might be possible.</p></div>
+<div class="path-step" onclick="selectPath(this)"><b>03</b><h3>Prototype</h3><p>Turn an idea into something that can be experienced.</p></div>
+<div class="path-step" onclick="selectPath(this)"><b>04</b><h3>Build</h3><p>Decide what deserves to become real and keep learning.</p></div>
+</div>
+<button class="continue" onclick="go('invitation')">One last step →</button>
+</div></div></section>
+
+<section class="section final" id="invitation"><div class="container"><div class="final-card">
+<div class="eyebrow">06 / INVITATION</div>
+<h2>Bring us something we have not seen.</h2>
+<p>Tree Labs is deliberately open-ended. If you have a problem, an idea or a reason to believe technology could work differently, that is enough to start exploring.</p>
+<div class="invites">
+<button class="invite" onclick="invite(this,'I have a problem')">I have a problem</button>
+<button class="invite" onclick="invite(this,'I have an idea')">I have an idea</button>
+<button class="invite" onclick="invite(this,'I want to build')">I want to build</button>
+</div>
+<div class="invite-response" id="inviteResponse"></div>
+<a class="button" href="index.html#contact">Start a conversation →</a>
+</div></div></section>
+</main>
+
+<footer><div class="container">Tree Labs / Inside · Exploring useful technology.</div></footer>
+
+<script>
+if(!localStorage.getItem('treeLabsVisitor')){window.location.replace('access.html');}
+
+function go(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});}
+function toggleLayer(el){el.classList.toggle('open');el.querySelector('.layer-head span').textContent=el.classList.contains('open')?'−':'+';}
+function selectLoop(el,note){document.querySelectorAll('.loop-step').forEach(x=>x.classList.remove('active'));el.classList.add('active');document.getElementById('loopNote').textContent=note;}
+function selectPath(el){document.querySelectorAll('.path-step').forEach(x=>x.classList.remove('active'));el.classList.add('active');}
 function choose(el,type){
  document.querySelectorAll('.choice').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');
- const r=document.getElementById('response');
  const copy={
- business:'The business question becomes: where does better context create measurable value without requiring another monolithic system? That can mean fewer manual decisions, better coordination, better customer experiences or capabilities that existing software was never designed to provide.',
- technology:'The technology question becomes: how can intelligence sit above existing infrastructure without forcing everything underneath it to be rebuilt? The details matter, but the public idea is deliberately simpler than the implementation.',
- investment:'The investment question becomes: can a reusable intelligence layer create a platform from which multiple applications and markets can emerge? The opportunity is not one feature; it is the capability underneath the experiences.',
- idea:'The lab question becomes: what are you seeing that existing technology does not handle well? A useful idea does not have to arrive fully formed. It can begin as an observation, a frustration or an unexpected possibility.'
+ business:'The business question becomes: where does better context create measurable value without requiring another monolithic system? That can mean better coordination, better customer experiences or capabilities existing software was never designed to provide.',
+ technology:'The technology question becomes: how can intelligence sit above existing infrastructure without forcing everything underneath it to be rebuilt? The public idea is deliberately simpler than the implementation.',
+ investment:'The investment question becomes: can a reusable intelligence layer create a platform from which multiple applications and markets can emerge? The opportunity is the capability underneath the experiences.',
+ idea:'The Lab question becomes: what are you seeing that existing technology does not handle well? A useful idea can begin as an observation, a frustration or an unexpected possibility.'
  };
- r.textContent=copy[type];r.classList.add('show');r.scrollIntoView({behavior:'smooth',block:'nearest'});
+ document.getElementById('responseText').textContent=copy[type];document.getElementById('response').classList.add('show');
 }
+function invite(el,text){document.querySelectorAll('.invite').forEach(x=>x.classList.remove('active'));el.classList.add('active');document.getElementById('inviteResponse').textContent=text==='I have a problem'?'Start with the friction. What is difficult, fragmented or unnecessarily manual today?':text==='I have an idea'?'Start with the possibility. What could work differently if technology understood more of the context?':'Start with the build. What are you ready to explore, prototype or make real?';}
+const sections=[...document.querySelectorAll('.section')];const links=[...document.querySelectorAll('.lab-progress a')];
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle('active',l.dataset.section===e.target.id));}})},{rootMargin:'-35% 0px -55% 0px',threshold:0});
+sections.forEach(s=>observer.observe(s));
 </script>
-</body></html>
+</body>
+</html>
